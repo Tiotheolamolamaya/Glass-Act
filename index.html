@@ -177,12 +177,12 @@
                 "name": "Do you do same-day work?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Sometimes. If you’re flexible, you’ll have better odds."
+                  "text": "Sometimes. If you're flexible, you'll have better odds."
                 }
               },
               {
                 "@type": "Question",
-                "name": "What’s included in detail work?",
+                "name": "What's included in detail work?",
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "Edges, sills wipe-down, light cobweb removal, and a final inspection for streaks and drips."
@@ -196,7 +196,6 @@
   </head>
 
   <body>
-    <!-- Decorative background bubbles -->
     <div class="bg-bubbles" aria-hidden="true">
       <span class="bubble b1"></span>
       <span class="bubble b2"></span>
@@ -246,7 +245,6 @@
     </header>
 
     <main id="top">
-      <!-- HERO -->
       <section class="hero">
         <div class="container hero-grid">
           <div class="hero-copy">
@@ -281,7 +279,7 @@
           <div class="hero-card">
             <div class="card">
               <h2>Quick Quote</h2>
-              <p class="muted">Fill this out and you’ll get a reply fast.</p>
+              <p class="muted">Fill this out and you'll get a reply fast.</p>
 
               <form
                 id="quote"
@@ -289,52 +287,27 @@
                 action="https://formspree.io/f/xzddgkqr"
                 method="POST"
               >
-                <input
-                  type="hidden"
-                  name="_subject"
-                  value="New Quote Request — Glass Act"
-                />
-                <input
-                  type="text"
-                  name="_gotcha"
-                  class="hp"
-                  tabindex="-1"
-                  autocomplete="off"
-                />
+                <input type="hidden" name="_subject" value="New Quote Request — Glass Act" />
+                <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" />
 
                 <div class="field">
                   <label for="name">Name</label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    autocomplete="name"
-                    placeholder="Your name"
-                    required
-                  />
+                  <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
                 </div>
 
                 <div class="field">
                   <label for="phone">Phone</label>
-                  <input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    autocomplete="tel"
-                    placeholder="(###) ###-####"
-                    required
-                  />
+                  <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(###) ###-####" required />
                 </div>
 
                 <div class="field">
                   <label for="email">Email (optional)</label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    autocomplete="email"
-                    placeholder="you@example.com"
-                  />
+                  <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" />
+                </div>
+
+                <div class="field">
+                  <label for="address">Address</label>
+                  <input id="address" name="address" type="text" autocomplete="street-address" placeholder="123 Main St, Sarasota, FL" />
                 </div>
 
                 <div class="field">
@@ -351,19 +324,11 @@
 
                 <div class="field">
                   <label for="message">Details</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows="4"
-                    placeholder="How many windows? Inside/outside? Screens? Address area?"
-                    required
-                  ></textarea>
+                  <textarea id="message" name="message" rows="4" placeholder="How many windows? Inside/outside? Screens? Address area?" required></textarea>
                 </div>
 
                 <button class="btn btn-wide" type="submit">Request Quote</button>
-                <p class="fineprint">
-                  No spam. No weird follow-ups. Just a price and available times.
-                </p>
+                <p class="fineprint">No spam. No weird follow-ups. Just a price and available times.</p>
               </form>
             </div>
 
@@ -379,17 +344,8 @@
                 </div>
               </div>
               <div class="mini-row">
-                <a
-                  class="mini-call"
-                  href="tel:+1-941-600-9697"
-                  aria-label="Call Glass Act"
-                ></a>
-                <a
-                  class="mini-call"
-                  href="sms:+1-941-600-9697"
-                  aria-label="Text Glass Act"
-                  >Text me</a
-                >
+                <a class="mini-call" href="tel:+1-941-600-9697" aria-label="Call Glass Act"></a>
+                <a class="mini-call" href="sms:+1-941-600-9697" aria-label="Text Glass Act">Text me</a>
               </div>
             </div>
           </div>
@@ -398,7 +354,6 @@
         <div class="wave" aria-hidden="true"></div>
       </section>
 
-      <!-- SERVICES -->
       <section id="services" class="section">
         <div class="container">
           <div class="section-head">
@@ -432,7 +387,7 @@
             <article class="service card">
               <div class="icon" aria-hidden="true">🪟</div>
               <h3>Screens & Tracks</h3>
-              <p>Optional add-ons that make the whole window look “new.”</p>
+              <p>Optional add-ons that make the whole window look "new."</p>
               <ul class="check">
                 <li>Screen wipe / wash</li>
                 <li>Track brush & wipe</li>
@@ -454,9 +409,6 @@
         </div>
       </section>
 
-      <!-- PRICING -->
-
-      <!-- PROCESS -->
       <section id="process" class="section">
         <div class="container">
           <div class="section-head">
@@ -468,28 +420,22 @@
             <li class="step card">
               <div class="step-num">1</div>
               <h3>Text or submit the form</h3>
-              <p>
-                Send window count (or photos), whether you want inside/outside,
-                and your general area.
-              </p>
+              <p>Send window count (or photos), whether you want inside/outside, and your general area.</p>
             </li>
             <li class="step card">
               <div class="step-num">2</div>
               <h3>Get a quote + time options</h3>
-              <p>You’ll get a clear price range and the next available slots.</p>
+              <p>You'll get a clear price range and the next available slots.</p>
             </li>
             <li class="step card">
               <div class="step-num">3</div>
               <h3>We clean. You inspect.</h3>
-              <p>
-                Final walk-through. If something isn’t right, it gets fixed on the spot.
-              </p>
+              <p>Final walk-through. If something isn't right, it gets fixed on the spot.</p>
             </li>
           </ol>
         </div>
       </section>
 
-      <!-- FAQ -->
       <section id="faq" class="section section-alt">
         <div class="container">
           <div class="section-head">
@@ -502,43 +448,27 @@
               <summary>Do you bring your own water and equipment?</summary>
               <p>Yes. We arrive with everything needed for standard jobs.</p>
             </details>
-
             <details class="card">
               <summary>How long does it take?</summary>
-              <p>
-                Most homes take 1–3 hours depending on window count and add-ons.
-                Storefronts are usually 10–30 minutes.
-              </p>
+              <p>Most homes take 1–3 hours depending on window count and add-ons. Storefronts are usually 10–30 minutes.</p>
             </details>
-
             <details class="card">
               <summary>Do you do same-day work?</summary>
-              <p>Sometimes. If you’re flexible, you’ll have better odds.</p>
+              <p>Sometimes. If you're flexible, you'll have better odds.</p>
             </details>
-
             <details class="card">
-              <summary>What’s included in “detail work”?</summary>
-              <p>
-                Edges, sills wipe-down, light cobweb removal, and a final inspection
-                for streaks/drips.
-              </p>
+              <summary>What's included in "detail work"?</summary>
+              <p>Edges, sills wipe-down, light cobweb removal, and a final inspection for streaks/drips.</p>
             </details>
           </div>
         </div>
       </section>
 
-      <!-- FOOTER / CONTACT -->
       <footer class="footer">
         <div class="container footer-grid">
           <div>
             <div class="brand footer-brand">
-              <img
-                class="brand-logo brand-logo--footer"
-                src="assets/glass-act-logo.png"
-                alt="Glass Act Window Cleaning logo"
-                width="56"
-                height="56"
-              />
+              <img class="brand-logo brand-logo--footer" src="assets/glass-act-logo.png" alt="Glass Act Window Cleaning logo" width="56" height="56" />
               <span class="brand-text">
                 <span class="brand-name">Glass Act</span>
                 <span class="brand-tag">Window Cleaning</span>
@@ -551,9 +481,7 @@
             <h4>Contact</h4>
             <a href="tel:+1-941-600-9697">(941) 600-9697</a>
             <a href="sms:+1-941-600-9697">Text us</a>
-            <a href="mailto:glassactwindowcleaning2026@gmail.com?subject=Glass%20Act%20Inquiry">
-              Email us
-            </a>
+            <a href="mailto:glassactwindowcleaning2026@gmail.com?subject=Glass%20Act%20Inquiry">Email us</a>
           </div>
 
           <div class="footer-col">
@@ -586,6 +514,27 @@
       }
 
       document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Send form data to N8n webhook (in addition to Formspree)
+      const quoteForm = document.getElementById('quote');
+      if (quoteForm) {
+        quoteForm.addEventListener('submit', function() {
+          const data = {
+            'Full Name': document.getElementById('name').value,
+            'Email': document.getElementById('email').value,
+            'Phone Number': document.getElementById('phone').value,
+            'Address': document.getElementById('address').value,
+            'Property Type': document.getElementById('type').value,
+            'Message': document.getElementById('message').value,
+          };
+          fetch('https://nebulawebonline.app.n8n.cloud/webhook/1ebd8a4e-45fd-4a12-9dc1-1fc3c7647cf6', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+            keepalive: true
+          });
+        });
+      }
     </script>
   </body>
 </html>
