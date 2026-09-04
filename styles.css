@@ -580,3 +580,22 @@ textarea{ resize: vertical; min-height: 110px; }
 
 .price { display: flex; flex-direction: column; }
 .price .btn { margin-top: auto; }
+/* ===== Google review button ===== */
+.btn-review{
+  background: linear-gradient(135deg, #f8d47a, #f0b429);
+  border: 1px solid rgba(190,140,20,0.35);
+  color: #2b1d00;
+  box-shadow: 0 12px 30px rgba(240,180,41,0.35);
+}
+.btn-review:hover{
+  background: linear-gradient(135deg, #f9dc92, #edaa1c);
+  box-shadow: 0 16px 40px rgba(240,180,41,0.42);
+}
+.btn-review-stars{
+  letter-spacing: 1px;
+  font-size: 1.05rem;
+  color: #2b1d00;
+}
+.btn-review--footer{
+  margin-top: 14px;
+}
