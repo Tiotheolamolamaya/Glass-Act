@@ -14,6 +14,16 @@
     <link rel="canonical" href="https://glassactwindowservices.com/" />
     <link rel="stylesheet" href="styles.css" />
 
+    <!-- Security hardening: restrict what the page is allowed to load/run and
+         how much referrer data leaks to other sites. See note at bottom of
+         file for why some headers (X-Frame-Options, X-Content-Type-Options,
+         HSTS) can't be set here and need to live in Cloudflare instead. -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://nebulawebonline.app.n8n.cloud; form-action 'self' https://nebulawebonline.app.n8n.cloud; frame-ancestors 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests;"
+    />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
     <meta
       name="google-site-verification"
       content="yPAdB17KEB_CnGE0Gz_4Tk1n0CFotS0d5ahqbaf8JGQ"
@@ -28,7 +38,7 @@
     <meta property="og:type" content="website" />
     <meta
       property="og:image"
-      content="https://glassactwindowservices.com/assets/glass-act-logo.png"
+      content="https://glassactwindowservices.com/assets/glass-act-logo-full.png"
     />
 
     <meta name="twitter:card" content="summary_large_image" />
@@ -39,7 +49,7 @@
     />
     <meta
       name="twitter:image"
-      content="https://glassactwindowservices.com/assets/glass-act-logo.png"
+      content="https://glassactwindowservices.com/assets/glass-act-logo-full.png"
     />
 
     <script type="application/ld+json">
@@ -271,10 +281,10 @@
         <a class="brand" href="#top" aria-label="Glass Act Home">
           <img
             class="brand-logo"
-            src="assets/glass-act-logo.png"
+            src="assets/glass-act-mark.png"
             alt="Glass Act Window Cleaning logo"
-            width="56"
-            height="56"
+            width="700"
+            height="316"
           />
           <span class="brand-text">
             <span class="brand-name">Glass Act</span>
@@ -303,6 +313,7 @@
 
     <main id="top">
       <section class="hero">
+        <div class="hero-media" aria-hidden="true"><div class="hero-slides" id="heroSlides"></div></div>
         <div class="container hero-grid">
           <div class="hero-copy">
             <p class="pill">Sarasota, FL • Residential & Small Business</p>
@@ -342,6 +353,14 @@
               </div>
             </div>
 
+          </div>
+        </div>
+        <div class="wave" aria-hidden="true"></div>
+      </section>
+
+      <section class="section quote-band">
+        <div class="container quote-grid">
+          <div class="quote-side">
             <div class="hero-extras">
               <div class="panel update-panel">
                 <span class="panel-tag">New</span>
@@ -369,8 +388,7 @@
                 <p class="panel-note">Not on the list? Ask anyway.</p>
               </div>
             </div>
-          </div>
-
+                    </div>
           <div class="hero-card">
             <div class="card">
               <h2>Quick Quote</h2>
@@ -379,30 +397,31 @@
               <form
                 id="quote"
                 class="form"
-                action="https://formspree.io/f/xzddgkqr"
+                action="https://nebulawebonline.app.n8n.cloud/webhook/glass-act-form"
                 method="POST"
               >
                 <input type="hidden" name="_subject" value="New Quote Request — Glass Act" />
                 <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" />
+                <input type="hidden" name="_ts" id="formTs" value="" />
 
                 <div class="field">
                   <label for="name">Name</label>
-                  <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+                  <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" maxlength="120" required />
                 </div>
 
                 <div class="field">
                   <label for="phone">Phone</label>
-                  <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(###) ###-####" required />
+                  <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(###) ###-####" maxlength="40" required />
                 </div>
 
                 <div class="field">
                   <label for="email">Email (optional)</label>
-                  <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" />
+                  <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" maxlength="160" />
                 </div>
 
                 <div class="field">
                   <label for="address">Address</label>
-                  <input id="address" name="address" type="text" autocomplete="street-address" placeholder="123 Main St, Sarasota, FL" />
+                  <input id="address" name="address" type="text" autocomplete="street-address" placeholder="123 Main St, Sarasota, FL" maxlength="250" />
                 </div>
 
                 <div class="field">
@@ -419,7 +438,7 @@
 
                 <div class="field">
                   <label for="message">Details</label>
-                  <textarea id="message" name="message" rows="4" placeholder="How many windows? Inside/outside? Screens? Address area?" required></textarea>
+                  <textarea id="message" name="message" rows="4" placeholder="How many windows? Inside/outside? Screens? Address area?" maxlength="2000" required></textarea>
                 </div>
 
                 <button class="btn btn-wide" type="submit">Request Quote</button>
@@ -444,9 +463,7 @@
               </div>
             </div>
           </div>
-        </div>
-
-        <div class="wave" aria-hidden="true"></div>
+                </div>
       </section>
 
       <section id="services" class="section">
@@ -576,10 +593,10 @@
             <div class="brand footer-brand">
               <img
                 class="brand-logo brand-logo--footer"
-                src="assets/glass-act-logo.png"
+                src="assets/glass-act-logo-full.png"
                 alt="Glass Act Window Cleaning logo"
-                width="56"
-                height="56"
+                width="1000"
+                height="443"
               />
               <span class="brand-text">
                 <span class="brand-name">Glass Act</span>
@@ -648,26 +665,73 @@
         year.textContent = new Date().getFullYear();
       }
 
-      const quoteForm = document.getElementById("quote");
-
-      if (quoteForm) {
-        quoteForm.addEventListener("submit", function () {
-          const data = {
-            "Full Name": document.getElementById("name").value,
-            Email: document.getElementById("email").value,
-            "Phone Number": document.getElementById("phone").value,
-            Address: document.getElementById("address").value,
-            "Property Type": document.getElementById("type").value,
-            Message: document.getElementById("message").value
-          };
-
-          fetch("https://nebulawebonline.app.n8n.cloud/webhook/6a451811-6e5e-42e0-8599-149eaa3b31d6", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data),
-            keepalive: true
-          });
+      // Timing trap: stamp the form the moment the page finishes loading.
+      // A real visitor takes several seconds to fill this out; a script that
+      // fills every field and submits instantly gives itself away. Checked
+      // alongside the _gotcha honeypot in the submit handler below.
+      // Hero slideshow: slow crossfade through local photos in assets/hero/.
+      // To change the photos, edit this list. Empty list = dusk gradient only.
+      const heroPhotos = [];
+      const slidesEl = document.getElementById("heroSlides");
+      if (slidesEl && heroPhotos.length) {
+        heroPhotos.forEach((src, i) => {
+          const d = document.createElement("div");
+          d.className = "hero-slide" + (i === 0 ? " is-on" : "");
+          d.style.backgroundImage = "url('" + src + "')";
+          slidesEl.appendChild(d);
         });
+        const slides = slidesEl.children;
+        let cur = 0;
+        if (slides.length > 1 && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          setInterval(() => {
+            slides[cur].classList.remove("is-on");
+            cur = (cur + 1) % slides.length;
+            slides[cur].classList.add("is-on");
+          }, 6000);
+        }
+      }
+
+      // Hero panorama: one extra-wide image that pans as visitors scroll,
+      // drifts slowly on its own, and follows phone tilt where the browser
+      // allows it without a permission prompt (Android). Set the file below.
+      const heroPano = "assets/hero/window.jpg";
+      if (slidesEl && heroPano) {
+        const p = document.createElement("div");
+        p.className = "hero-pano";
+        const img = new Image();
+        img.alt = "";
+        img.src = heroPano;
+        p.appendChild(img);
+        slidesEl.appendChild(p);
+        const hero = document.querySelector(".hero");
+        const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+        let tilt = 0, drift = 0, last = performance.now();
+        if (!reduce && "DeviceOrientationEvent" in window &&
+            typeof DeviceOrientationEvent.requestPermission !== "function") {
+          addEventListener("deviceorientation", (e) => {
+            if (e.gamma != null) tilt = Math.max(-1, Math.min(1, e.gamma / 30));
+          }, { passive: true });
+        }
+        const frame = (now) => {
+          const dt = Math.min(64, now - last); last = now;
+          drift += dt / 1000;
+          const extra = img.offsetWidth - hero.offsetWidth;
+          if (extra > 0) {
+            const r = hero.getBoundingClientRect();
+            const scrolled = Math.max(0, Math.min(1, -r.top / Math.max(1, r.height)));
+            // base position: center; scroll pans right, drift sways, tilt steers
+            let f = 0.5 + scrolled * 0.35 + Math.sin(drift / 14) * 0.12 + tilt * 0.2;
+            f = Math.max(0, Math.min(1, f));
+            img.style.transform = "translate3d(" + (-extra * f).toFixed(1) + "px," + (scrolled * r.height * 0.25).toFixed(1) + "px,0)";
+          }
+          if (!reduce) requestAnimationFrame(frame);
+        };
+        img.onload = () => requestAnimationFrame(frame);
+      }
+
+      const formTsField = document.getElementById("formTs");
+      if (formTsField) {
+        formTsField.value = String(Date.now());
       }
     </script>
     <!--
@@ -677,9 +741,9 @@
 -->
 <style>
   :root {
-    --ga-sky: #6fbef3;
-    --ga-sky-deep: #2f8fd6;
-    --ga-navy: #0d4d7a;
+    --ga-sky: #00aeef;
+    --ga-sky-deep: #0679ac;
+    --ga-navy: #00506f;
     --ga-gold: #f5c34b;
     --ga-ink: #0f1a24;
     --ga-slate: #526472;
@@ -1031,7 +1095,7 @@
 
 <section class="ga-chat-panel" id="gaChatPanel" data-open="false" aria-live="polite">
   <header class="ga-chat-head">
-    <img src="/assets/glass-act-logo.png" alt="" />
+    <img src="/assets/glass-act-icon.png" alt="" />
     <div>
       <strong>Glass Act</strong>
       <span><i class="ga-dot"></i>Usually replies right away</span>
@@ -1040,7 +1104,8 @@
   </header>
   <div class="ga-chat-log" id="gaChatLog"></div>
   <div class="ga-chat-form">
-    <input id="gaChatInput" type="text" placeholder="How many windows do you have?" autocomplete="off" />
+    <input type="text" name="_gotcha" id="gaHp" class="hp" tabindex="-1" autocomplete="off" />
+    <input id="gaChatInput" type="text" placeholder="How many windows do you have?" autocomplete="off" maxlength="500" />
     <button id="gaChatSend" aria-label="Send message">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/>
@@ -1063,9 +1128,19 @@
   var closeBtn = document.getElementById("gaChatClose");
   var teaser = document.getElementById("gaTeaser");
   var teaserX = document.getElementById("gaTeaserX");
+  var hpField = document.getElementById("gaHp");
 
   var sessionId = "ga-" + Date.now() + "-" + Math.random().toString(36).slice(2, 10);
   var greeted = false;
+
+  // Send-rate guard: a real visitor doesn't fire off a dozen messages in a
+  // few seconds. Track recent send timestamps and pause the widget if it
+  // looks scripted, instead of relaying every message straight to the AI
+  // agent (which costs Steffan money per call).
+  var sendTimestamps = [];
+  var RATE_LIMIT_COUNT = 6;
+  var RATE_LIMIT_WINDOW_MS = 30000;
+  var rateLimited = false;
 
   var teaserTimer = setTimeout(function () {
     if (panel.getAttribute("data-open") !== "true") {
@@ -1115,6 +1190,28 @@
   function send() {
     var text = input.value.trim();
     if (!text) return;
+
+    // Honeypot: a hidden field no real visitor can see or fill. If it has a
+    // value, this came from a script filling every field blindly — drop it
+    // without hitting the webhook or the AI agent, and without letting on.
+    if (hpField && hpField.value) {
+      input.value = "";
+      return;
+    }
+
+    var now = Date.now();
+    sendTimestamps = sendTimestamps.filter(function (t) { return now - t < RATE_LIMIT_WINDOW_MS; });
+    sendTimestamps.push(now);
+    if (sendTimestamps.length > RATE_LIMIT_COUNT) {
+      if (!rateLimited) {
+        rateLimited = true;
+        addMessage("Let's slow down a little — go ahead and send your next message in a bit and I'll pick right back up.", "bot");
+      }
+      input.value = "";
+      return;
+    }
+    rateLimited = false;
+
     addMessage(text, "me");
     input.value = "";
     sendBtn.disabled = true;
@@ -1156,6 +1253,63 @@
   sendBtn.addEventListener("click", send);
   input.addEventListener("keydown", function (e) {
     if (e.key === "Enter") send();
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var form = document.getElementById('quote');
+  if (!form) return;
+
+  var lastSubmitAt = 0;
+
+  function showThanks() {
+    form.innerHTML =
+      '<h2>Thanks — got it.</h2>' +
+      '<p class="muted">Steffan will get back to you, usually the same day ' +
+      'during business hours. Want a faster quote? Text photos to ' +
+      '<a href="sms:+1-941-600-9697">941-600-9697</a>.</p>';
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Basic double-submit / rapid-refire guard.
+    var now = Date.now();
+    if (now - lastSubmitAt < 4000) return;
+    lastSubmitAt = now;
+
+    // Bot checks: a filled honeypot field, or a submit landing less than 3s
+    // after the timestamp field was stamped on page load, both mean this
+    // almost certainly wasn't typed by a person. Pretend it worked (never
+    // tip off the bot) but don't actually send anything.
+    var gotcha = (form.querySelector('[name="_gotcha"]') || {}).value || '';
+    var stampedAt = Number((form.querySelector('[name="_ts"]') || {}).value || 0);
+    var tooFast = stampedAt > 0 && (now - stampedAt) < 3000;
+
+    if (gotcha || tooFast) {
+      showThanks();
+      return;
+    }
+
+    var btn = form.querySelector('button[type="submit"]');
+    var original = btn ? btn.textContent : '';
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+
+    var payload = {};
+    new FormData(form).forEach(function (v, k) { payload[k] = v; });
+
+    fetch(form.action, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(showThanks)
+      .catch(function () {
+        if (btn) { btn.disabled = false; btn.textContent = original; }
+        alert('Something went wrong sending that. Please call or text 941-600-9697.');
+      });
   });
 })();
 </script>
